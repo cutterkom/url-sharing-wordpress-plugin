@@ -5,7 +5,7 @@ The URL Sharing Plugin adds a text field with the post URL at the end of your po
 
 The plugin can be used as a more privacy-friendly alternative to sharing buttons or as an additional sharing-option.
 
-I got inspired by Dominik's post about readability and usability on blogs (in German) who uses the Quartz-like approach – something I wanted to have, too.
+I was inspired by[Dominik's post](http://do-s.de/Blogger-macht-es-euren-Lesern-leichter/) about readability and usability on blogs (in German) who uses the Quartz-like approach – something I wanted to have, too.
 
 
 ## Installation
