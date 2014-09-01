@@ -18,13 +18,6 @@ Settings
 
 You can change the styling by adding your changes to stylesheet of the plugin. In the default version the css classes .url_share_label and .url_share_input don't have values, in order to align to your theme visually. Moreover there are two classes to control the states for the copy-to-clipboard-button: .zeroclipboard-is-hover and .zeroclipboard-is-active.
 
-## To-do List
-
-The first version of URL Share plugin is very basic. Things that might be considered in the future:
-
-* Enable font color change of the URL in backend
-* Offer a PHP-Snippet to enable more flexible positioning
-* 	-A button to automatically copy the URL to the user's clipboard (by using an existing JavaScript library)- (done in version 1.1)
 
 ## Versions
 ### 1.1
@@ -32,3 +25,10 @@ Button to copy URL to user’s clipboard by using [ZeroClipBoard](https://github
 
 ### 1.0
 Initial version: Input line with post URL
+
+## To-do List
+
+Things that might be considered in the future:
+
+* Enable font color change of the URL in backend
+* Offer a PHP-Snippet to enable more flexible positioning
