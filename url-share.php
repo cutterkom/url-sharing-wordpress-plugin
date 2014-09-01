@@ -2,7 +2,7 @@
 /*
 Plugin Name: URL Sharing
 Description: Easy sharing of the URL posts with a textfield
-Version: 1.0
+Version: 1.1
 Author: Katharina Brunner
 Author URI: http://www.katharinabrunner.de/
 Plugin URI: http://www.katharinabrunner.de/url-share-wordpress-plugin
@@ -25,6 +25,7 @@ Copyright 2014  Katharina Brunner  (email : mail@katharina-brunner.de)
 
 Contents: 
 - Stylesheet
+- Loading ZeroClipBoard.js 
 - Settings Page 
 - URL Sharing 
 */
@@ -38,12 +39,16 @@ function url_sharing_style() {
 }
 
 // Enqueue JS
-function url_sharing_js()) {
-    wp_enqueue_script('clip_main', plugins_url('/js/main.js'__FILE__));
-    wp_enqueue_script('clip_main_zero', plugins_url('/js/ZeroClipboard.js'__FILE__));
+function url_sharing_js() {
+        
+wp_enqueue_script( 'jquery');
+wp_enqueue_script('zero', plugins_url('js/ZeroClipboard.js', __FILE__), array('jquery'));
+wp_enqueue_script('main', plugins_url('js/main.js', __FILE__), array( 'jquery', 'zero' ));
+
+
 }
 
-add_action( 'wp_enqueue_scripts', 'url_sharing_zero' ); 
+add_action( 'wp_enqueue_scripts', 'url_sharing_js' ); 
 
 
 // Add Settings Page for WordPress Backend
@@ -126,8 +131,18 @@ class url_sharing_SettingsPage
             array( $this, 'label_callback' ), 
             'url-share-setting-admin', 
             'setting_section_id'
+        );
+
+        add_settings_field(
+            'button', 
+            'Button', 
+            array( $this, 'button_callback' ), 
+            'url-share-setting-admin', 
+            'setting_section_id'
         );      
     }
+
+
 
     /**
      * Sanitize each setting field as needed
@@ -141,6 +156,9 @@ class url_sharing_SettingsPage
         if( isset( $input['label'] ) )
             $new_input['label'] = sanitize_text_field( $input['label'] );
 
+         if( isset( $input['button'] ) )
+            $new_input['button'] = sanitize_text_field( $input['button'] );
+
         return $new_input;
     }
 
@@ -149,7 +167,7 @@ class url_sharing_SettingsPage
      */
     public function print_section_info()
     {
-        print 'Change the label before the URL Sharing field.';
+        print 'Change the label before the URL Sharing field and the text on the copy button.';
     }
 
 
@@ -163,6 +181,15 @@ class url_sharing_SettingsPage
             isset( $this->options['label'] ) ? esc_attr( $this->options['label']) : ''
         );
     }
+
+      public function button_callback()
+    {
+        printf(
+            '<input type="text" id="label" name="url_sharing_option_name[button]" value="" />',
+            isset( $this->options['button'] ) ? esc_attr( $this->options['button']) : ''
+        );
+    
+    }
 }
 
 if( is_admin() )
@@ -170,11 +197,11 @@ if( is_admin() )
 
 // Add URL Share field 
 function url_sharing($content) {     
-
+        
     if ( is_singular('post') ) {
         $options_url_sharing = get_option('url_sharing_option_name'); 
 
-        $content .= "<div class='url_sharing'><label class='url_sharing_label'>" . $options_url_sharing['label'] . " </label><input name='clipboard-text' id='clipboard-text' class='url_sharing_input' type='text' value='" . get_permalink() . " '></div><button id='target-to-copy' data-clipboard-target='clipboard-text'>Click To Copy</button>";
+        $content .= "<div class='url_sharing'><label class='url_sharing_label'>" . $options_url_sharing['label'] . " </label><input id='clipboard-text'' class='url_sharing_input' type='text' value='" . get_permalink() . " '><button id='target-to-copy' data-clipboard-target='clipboard-text'>" . $options_url_sharing['button'] . "</button></div>";
     }
         return $content;
 }
