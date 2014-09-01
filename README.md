@@ -10,13 +10,13 @@ I was inspired by [Dominik's post](http://do-s.de/Blogger-macht-es-euren-Lesern-
 
 ## Installation
 
-Upload the files in your plugins directory. Then activate it. On the URL Sharing settings page in the WordPress backend you can change the following: 
-* The label (text) in front of the URL
-* The text on the copy-to-clipboard-button
+Upload the files in your plugins directory. Then activate it.
+For a label in front of the URL, go to the settings page and insert your text in the input field. Of course, you can leave it blank, too.
+Settings
 
 ## Change style
 
-You can change the styling by adding your changes to stylesheet of the plugin. In the default version the css classes .url_share_label and .url_share_input don't have values, in order to align to your theme visually. 
+You can change the styling by adding your changes to stylesheet of the plugin. In the default version the css classes .url_share_label and .url_share_input don't have values, in order to align to your theme visually. Moreover there are two classes to control the states for the copy-to-clipboard-button: .zeroclipboard-is-hover and .zeroclipboard-is-active.
 
 ## To-do List
 
@@ -24,7 +24,7 @@ The first version of URL Share plugin is very basic. Things that might be consid
 
 * Enable font color change of the URL in backend
 * Offer a PHP-Snippet to enable more flexible positioning
-* 	- A button to automatically copy the URL to the user's clipboard (by using an existing JavaScript library)- (done in version 1.1)
+* 	-A button to automatically copy the URL to the user's clipboard (by using an existing JavaScript library)- (done in version 1.1)
 
 ## Versions
 ### 1.1
