@@ -37,6 +37,14 @@ function url_sharing_style() {
     wp_enqueue_style( 'url_sharing_css', plugins_url('style.css', __FILE__), '', 1.0 );
 }
 
+// Enqueue JS
+function url_sharing_js()) {
+    wp_enqueue_script('clip_main', plugins_url('/js/main.js'__FILE__));
+    wp_enqueue_script('clip_main_zero', plugins_url('/js/ZeroClipboard.js'__FILE__));
+}
+
+add_action( 'wp_enqueue_scripts', 'url_sharing_zero' ); 
+
 
 // Add Settings Page for WordPress Backend
 
@@ -166,7 +174,7 @@ function url_sharing($content) {
     if ( is_singular('post') ) {
         $options_url_sharing = get_option('url_sharing_option_name'); 
 
-        $content .= "<div class='url_sharing'><label class='url_sharing_label'>" . $options_url_sharing['label'] . " </label><input class='url_sharing_input' type='text' value='" . get_permalink() . " '></div>";
+        $content .= "<div class='url_sharing'><label class='url_sharing_label'>" . $options_url_sharing['label'] . " </label><input name='clipboard-text' id='clipboard-text' class='url_sharing_input' type='text' value='" . get_permalink() . " '></div><button id='target-to-copy' data-clipboard-target='clipboard-text'>Click To Copy</button>";
     }
         return $content;
 }
