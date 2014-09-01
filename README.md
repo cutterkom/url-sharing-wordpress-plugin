@@ -10,9 +10,9 @@ I was inspired by [Dominik's post](http://do-s.de/Blogger-macht-es-euren-Lesern-
 
 ## Installation
 
-Upload the files in your plugins directory. Then activate it.
-For a label in front of the URL, go to the settings page and insert your text in the input field. Of course, you can leave it blank, too.
-Settings
+Upload the files in your plugins directory. Then activate it. On the URL Sharing settings page in the WordPress backend you can change the following: 
+* The label (text) in front of the URL
+* The text on the copy-to-clipboard-button
 
 ## Change style
 
