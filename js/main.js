@@ -1,5 +1,7 @@
+jQuery(document).ready(function ($) {
+// main.js
 var clientTarget = new ZeroClipboard( $("#target-to-copy"), {
-    moviePath: "http://paulund.localhost/playground/demo/zeroclipboard-demo/zeroclipboard/ZeroClipboard.swf",
+    moviePath: "ZeroClipboard.swf",
     debug: false
 } );
 
@@ -12,3 +14,4 @@ clientTarget.on( "load", function(clientTarget)
         $('#target-to-copy-text').fadeIn();
     } );
 } );
+});
