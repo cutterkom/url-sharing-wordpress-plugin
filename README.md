@@ -19,7 +19,7 @@ Settings
 You can change the styling by adding your changes to stylesheet of the plugin. In the default version the css classes .url_share_label and .url_share_input don't have values, in order to align to your theme visually. Moreover there are two classes to control the states for the copy-to-clipboard-button: .zeroclipboard-is-hover and .zeroclipboard-is-active.
 
 
-## Versions
+## Changelog
 ### 1.1
 Button to copy URL to user’s clipboard by using [ZeroClipBoard](https://github.com/zeroclipboard/zeroclipboard)
 
