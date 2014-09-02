@@ -2,15 +2,8 @@
 Version: 1.1
 */
 
-.url_sharing {
-	display: inline;
-	position: relative;
-	left: 0;
-}
-
-.url_sharing_label {
-	
-}
-
+.url_sharing {}
+.url_sharing_label {}
+.url_share_input {}
 .zeroclipboard-is-hover { }
 .zeroclipboard-is-active { }
