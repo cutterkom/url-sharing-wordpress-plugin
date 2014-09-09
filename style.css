@@ -5,5 +5,5 @@ Version: 1.1
 .url_sharing {}
 .url_sharing_label {}
 .url_share_input {}
-.zeroclipboard-is-hover { }
+.zeroclipboard-is-hover {cursor:hand;}
 .zeroclipboard-is-active { }
